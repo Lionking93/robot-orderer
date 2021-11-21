@@ -8,6 +8,7 @@ Library    RPA.PDF
 Library    RPA.Archive
 Library    RPA.Dialogs
 Library    RPA.Robocorp.Vault
+Library    RPA.RobotLogListener
 
 *** Keywords ***
 Open the robot order website
@@ -46,6 +47,7 @@ Submit the order
 *** Keywords ***
 Assert order completed
     Click Button    Order
+    Mute Run On Failure    Wait Until Page Contains Element
     Wait Until Page Contains Element    xpath=//h3[contains(.,'Receipt')]    timeout=2 sec
 
 *** Keywords ***
